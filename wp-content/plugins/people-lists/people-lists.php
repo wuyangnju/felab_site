@@ -839,29 +839,36 @@ function people_lists_shortcode($atts) {
 
             //WU Yang: my modification here, hard encoding the template
             $found_people_list['template']= '
-<div style="float: left;width: 160px">'.
+<div style="float: left;width: 160px;margin-top: 5px; margin-bottom: 5px">'.
   userphoto__get_userphoto($id, USERPHOTO_FULL_SIZE, "", "", array(), "").
 '</div>
 <div style="float: left;width: 80px;padding: 10px">
-  <strong>Name:</strong></br>
-  <strong>Email:</strong></br>
-  <strong>Room:</strong></br>
+  <strong>
+    <!--:en-->Name<!--:--><!--:zh-->姓名<!--:-->
+  :</strong></br>
+  <strong>
+    <!--:en-->Email<!--:--><!--:zh-->电子邮件<!--:-->
+  :</strong></br>
+  <strong>
+    <!--:en-->Office<!--:--><!--:zh-->办公室<!--:-->
+  :</strong></br>
 </div>
 <div style="float: left;padding: 10px">
-  <a href="/wordpress/members/?uid='.$id.'">%people_lists_fe_name%</a> </br>
-  %people_lists_fe_email% </br>
+  <a href="/wordpress/members/?uid='.$id.'">
+  <!--:en-->%people_lists_fe_name_1%<!--:--><!--:zh-->%people_lists_fe_name_cn%<!--:-->
+  </a></br>
+  %people_lists_fe_email_1% </br>
   %people_lists_fe_room%</br>
 </div>
 ';
 			$html = '<div class="person">';
 			$html .= stripslashes($found_people_list['template']);
 			$html .= '</div><div style="clear:both"></div>';
-			$html2 .= apply_filters("people_list_shortcode", str_replace($input_template, $replacements, $html));
+            $html2 .= _e(apply_filters("people_list_shortcode", str_replace($input_template, $replacements, $html)));
 		endforeach;
 	endif;
 	return $html2;
 }
-
 
 if ( function_exists('register_uninstall_hook') )
     register_uninstall_hook(__FILE__, 'people_lists_uninstall_hook');
