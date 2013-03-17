@@ -32,7 +32,7 @@ if ( !defined('ABSPATH')) exit;
         <?php endif; ?>
         
             <div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-                <h1 class="post-title"><?php the_title(); ?></h1>
+                <!--<h1 class="post-title"><?php //the_title(); ?></h1>-->
  
                 <?php if ( comments_open() ) : ?>               
                 <div class="post-meta">

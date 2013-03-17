@@ -1,4 +1,4 @@
 AuthName "File Protection"
 AuthType Basic
-AuthUserFile /home/ielm/wp-htpasswd
+AuthUserFile /home/ielm/websites/felab-htpasswd
 require valid-user
